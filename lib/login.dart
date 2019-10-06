@@ -1,4 +1,11 @@
+import 'package:GiveBack/homeOrg.dart';
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:google_sign_in/google_sign_in.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'home.dart';
+
+final databaseReference = Firestore.instance;
 
 class Login extends StatefulWidget {
   @override
@@ -6,6 +13,9 @@ class Login extends StatefulWidget {
 }
 
 class LoginState extends State<Login> {
+  final GoogleSignIn _googleSignIn = GoogleSignIn();
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+
 	@override
 	Widget build(BuildContext context) {
 		return Scaffold (
@@ -43,7 +53,12 @@ class LoginState extends State<Login> {
                       minWidth: MediaQuery.of(context).size.width * 0.86,
                       buttonColor: Theme.of(context).accentColor,
                       child: RaisedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => Home()),
+                          );
+                        },
                         child: Text('a volunteer', style: TextStyle(color: Theme.of(context).primaryColor, fontSize: 22.0, fontWeight: FontWeight.normal)),
                       ),
                     ),
@@ -51,7 +66,12 @@ class LoginState extends State<Login> {
                       minWidth: MediaQuery.of(context).size.width * 0.86,
                       buttonColor: Theme.of(context).accentColor,
                       child: RaisedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => Home()),
+                          );
+                        },
                         child: Text('an organizer', style: TextStyle(color: Theme.of(context).primaryColor, fontSize: 22.0, fontWeight: FontWeight.normal)),
                       ),
                     ),
@@ -64,4 +84,40 @@ class LoginState extends State<Login> {
 			),
 		);
 	}
+
+/*
+  Future<FirebaseUser> _handleSignIn(String type) async {
+  final GoogleSignInAccount googleUser = await _googleSignIn.signIn();
+  final GoogleSignInAuthentication googleAuth = await googleUser.authentication;
+
+  final AuthCredential credential = GoogleAuthProvider.getCredential(
+    accessToken: googleAuth.accessToken,
+    idToken: googleAuth.idToken,
+  );
+
+  final FirebaseUser user = (await _auth.signInWithCredential(credential));
+  print("signed in " + user.displayName);
+
+  databaseReference.collection("users").document(user.uid).setData({
+    "name": user.displayName,
+    "imgURL": user.photoUrl,
+    "email": user.email,
+    "events": [],
+    "type": type
+  });
+
+  if (type == "vol") {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => Home()),
+    );
+
+  } else if (type == "org") {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => HomeOrg()),
+    );
+  }
+    return user;
+  }*/
 }
