@@ -31,6 +31,15 @@ class HomeState extends State<Home> {
                     icon: new Icon(Icons.settings, color: Theme.of(context).primaryColor,),
                     onPressed: () {},
                   ),
+                  IconButton(
+                    icon: new Icon(Icons.add, color: Theme.of(context).primaryColor,),
+                    onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (content) => AddOrganization()),
+                        );
+                      },
+                  ),
                 ],
               ),
               Events(),
@@ -39,6 +48,33 @@ class HomeState extends State<Home> {
       ),
 		);
 	}
+}
+
+class AddOrganization extends StatelessWidget{
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Add Organization"),
+      ),
+      body: SafeArea(
+        child: Column(
+          children: <Widget>[
+             TextField(
+            decoration: InputDecoration(
+             hintText: 'Enter organization name'
+            ),
+          ),
+          TextField(
+            decoration: InputDecoration(
+              hintText: 'Enter amount of volunteers needed'
+            ),
+          ),
+          ],
+        ) 
+      ),
+    );
+  }
 }
 
 class Events extends StatelessWidget {
