@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "253839685599",
+    "firebase_url": "https://giveback-hackathon.firebaseio.com",
+    "project_id": "giveback-hackathon",
+    "storage_bucket": "giveback-hackathon.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:253839685599:android:8dbe310e31a48474e1b66a",
+        "android_client_info": {
+          "package_name": "com.hackathon.giveback"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "253839685599-5ofcq7leolnba4gs9apkr9p56v6bhbfq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBHoO6_1ujtIzi3DQcDe1dtNj-pL5pMaYQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "253839685599-5ofcq7leolnba4gs9apkr9p56v6bhbfq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
