@@ -1,9 +1,11 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 final databaseReference = Firestore.instance;
+
+final _orgName = TextEditingController();
+final _needed = TextEditingController();
+final _imgLink = TextEditingController();
 
 class Home extends StatefulWidget {
   @override
@@ -36,6 +38,9 @@ class HomeState extends State<Home> {
                   IconButton(
                     icon: new Icon(Icons.add, color: Theme.of(context).primaryColor,),
                     onPressed: () {
+                      _orgName.clear();
+                      _needed.clear();
+                      _imgLink.clear();
                         Navigator.push(
                           context,
                           MaterialPageRoute(builder: (content) => AddOrganization()),
@@ -53,9 +58,11 @@ class HomeState extends State<Home> {
 }
 
 class AddOrganization extends StatelessWidget{
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Theme.of(context).backgroundColor,
       appBar: AppBar(
         title: Text("Add Organization"),
       ),
@@ -63,24 +70,53 @@ class AddOrganization extends StatelessWidget{
         child: Column(
           children: <Widget>[
              TextField(
+                  controller: _orgName,
                   decoration: InputDecoration(
                     hintText: 'Enter organization name'
                   ),
                 ),
             TextField(
+              controller: _needed,
+              keyboardType: TextInputType.number,
               decoration: InputDecoration(
                 hintText: 'Enter amount of volunteers needed'
               ),
             ),
             TextField(
+              controller: _imgLink,
               decoration: InputDecoration(
                 hintText: 'Enter image link'
+              ),
+            ),
+            ButtonTheme(
+              minWidth: MediaQuery.of(context).size.width * 0.86,
+              buttonColor: Theme.of(context).accentColor,
+              child: RaisedButton(
+                onPressed: () {
+                  addEvent();
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (content) => Home()),
+                  );
+                },
+                child: Text('an organizer', style: TextStyle(color: Theme.of(context).primaryColor, fontSize: 22.0, fontWeight: FontWeight.normal)),
               ),
             ),
           ],
         ) 
       ),
     );
+  }
+
+  void addEvent() {
+    String _name = _orgName.text;
+    int _vol = int.tryParse(_needed.text);
+    String _url = _imgLink.text;
+    databaseReference.collection("events").add({
+      "name": _name,
+      "spots": _vol,
+      "imgURL": _url
+    });
   }
 }
 

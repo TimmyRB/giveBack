@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'strings.dart';
 import 'login.dart';
-import 'home.dart';
+//import 'home.dart';
 
 void main() => runApp(GiveBackApp());
 
