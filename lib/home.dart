@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
@@ -61,15 +63,20 @@ class AddOrganization extends StatelessWidget{
         child: Column(
           children: <Widget>[
              TextField(
-            decoration: InputDecoration(
-             hintText: 'Enter organization name'
+                  decoration: InputDecoration(
+                    hintText: 'Enter organization name'
+                  ),
+                ),
+            TextField(
+              decoration: InputDecoration(
+                hintText: 'Enter amount of volunteers needed'
+              ),
             ),
-          ),
-          TextField(
-            decoration: InputDecoration(
-              hintText: 'Enter amount of volunteers needed'
+            TextField(
+              decoration: InputDecoration(
+                hintText: 'Enter image link'
+              ),
             ),
-          ),
           ],
         ) 
       ),
