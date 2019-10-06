@@ -31,28 +31,28 @@ class LoginState extends State<Login> {
                     Row(
                       children: <Widget>[
                         Expanded(
-                          child: Divider(color: Color.fromRGBO(143, 143, 143, 1.0), thickness: 2, indent: 50, endIndent: 5,),
+                          child: Divider(color: Theme.of(context).accentColor, thickness: 2, indent: 50, endIndent: 5,),
                         ),
-                        Text("I am", style: TextStyle(color: Color.fromRGBO(143, 143, 143, 1.0), fontSize: 16.0, fontWeight: FontWeight.normal)),
+                        Text("I am", style: TextStyle(color: Theme.of(context).accentColor, fontSize: 16.0, fontWeight: FontWeight.normal)),
                         Expanded(
-                          child: Divider(color: Color.fromRGBO(143, 143, 143, 1.0), thickness: 2, indent: 5, endIndent: 50,),
+                          child: Divider(color: Theme.of(context).accentColor, thickness: 2, indent: 5, endIndent: 50,),
                         ),
                       ],
                     ),
                     ButtonTheme(
                       minWidth: MediaQuery.of(context).size.width * 0.86,
-                      buttonColor: Color.fromRGBO(255, 255, 255, 1.0),
+                      buttonColor: Theme.of(context).accentColor,
                       child: RaisedButton(
                         onPressed: () {},
-                        child: const Text('a volunteer', style: TextStyle(color: Color.fromRGBO(90, 90, 90, 1.0), fontSize: 22.0, fontWeight: FontWeight.normal)),
+                        child: Text('a volunteer', style: TextStyle(color: Theme.of(context).primaryColor, fontSize: 22.0, fontWeight: FontWeight.normal)),
                       ),
                     ),
                     ButtonTheme(
                       minWidth: MediaQuery.of(context).size.width * 0.86,
-                      buttonColor: Color.fromRGBO(255, 255, 255, 1.0),
+                      buttonColor: Theme.of(context).accentColor,
                       child: RaisedButton(
                         onPressed: () {},
-                        child: const Text('an organizer', style: TextStyle(color: Color.fromRGBO(90, 90, 90, 1.0), fontSize: 22.0, fontWeight: FontWeight.normal)),
+                        child: Text('an organizer', style: TextStyle(color: Theme.of(context).primaryColor, fontSize: 22.0, fontWeight: FontWeight.normal)),
                       ),
                     ),
                   ],

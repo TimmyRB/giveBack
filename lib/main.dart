@@ -10,12 +10,12 @@ class GiveBackApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: Strings.appName,
-      themeMode: ThemeMode.dark,
-      darkTheme: ThemeData(
-        brightness: Brightness.dark,
-        primaryColor: Color.fromRGBO(18, 18, 18, 1.0), 
-        accentColor: Color.fromRGBO(75, 255, 160, 1.0),
-        backgroundColor: Color.fromRGBO(221, 221, 221, 1.0),
+      themeMode: ThemeMode.system,
+      theme: ThemeData(
+        brightness: Brightness.light,
+        primaryColor: Color.fromRGBO(0, 0, 0, 1.0), 
+        accentColor: Color.fromRGBO(153, 153, 153, 1.0),
+        backgroundColor: Color.fromRGBO(255, 255, 255, 1.0),
 
         fontFamily: "Roboto",
 
@@ -24,7 +24,20 @@ class GiveBackApp extends StatelessWidget {
           button: TextStyle(color: Color.fromRGBO(90, 90, 90, 1.0), fontSize: 16.0, fontWeight: FontWeight.normal)
         ),
       ),
-      home: Login(),
+      darkTheme: ThemeData(
+        brightness: Brightness.dark,
+        primaryColor: Color.fromRGBO(255, 255, 255, 1.0), 
+        accentColor: Color.fromRGBO(95, 97, 110, 1.0),
+        backgroundColor: Color.fromRGBO(32, 35, 47, 1.0),
+
+        fontFamily: "Roboto",
+
+        textTheme: TextTheme(
+          headline: TextStyle(color: Color.fromRGBO(75, 255, 160, 100), fontSize: 35.0, fontWeight: FontWeight.normal),
+          button: TextStyle(color: Color.fromRGBO(90, 90, 90, 1.0), fontSize: 16.0, fontWeight: FontWeight.normal)
+        ),
+      ),
+      home: Home(),
     );
   }
 }
