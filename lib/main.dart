@@ -14,7 +14,7 @@ class GiveBackApp extends StatelessWidget {
       theme: ThemeData(
         brightness: Brightness.light,
         primaryColor: Color.fromRGBO(0, 0, 0, 1.0), 
-        accentColor: Color.fromRGBO(153, 153, 153, 1.0),
+        accentColor: Color.fromRGBO(230, 230, 230, 1.0),
         backgroundColor: Color.fromRGBO(255, 255, 255, 1.0),
 
         fontFamily: "Roboto",
@@ -37,7 +37,7 @@ class GiveBackApp extends StatelessWidget {
           button: TextStyle(color: Color.fromRGBO(90, 90, 90, 1.0), fontSize: 16.0, fontWeight: FontWeight.normal)
         ),
       ),
-      home: Home(),
+      home: Login(),
     );
   }
 }
